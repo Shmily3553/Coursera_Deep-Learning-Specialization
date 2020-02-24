@@ -1,10 +1,13 @@
 ## Week 4 Quiz - Deep Neural Networks
 
+All the answers showed are correct.
+
 **1. What is the "cache" used for in our implementation of forward propagation and backward propagation?**
 
 We use it to pass variables computed during forward propagation to the corresponding backward propagation step. It contains useful values for backward propagation to compute derivatives.
 
 **2. Among the following, which ones are "hyperparameters"? (Check all that apply.)**
+
 number of layers $L$ in the neural network
 
 learning rate $\alpha $
@@ -31,7 +34,7 @@ for(i in range(1, len(layer_dims))):
 
 **6. Consider the following neural network.**
 
-![](C:\Users\shmily\Documents\GitHub\Coursera_Deep-Learning-Specialization\Neural-Network-and-Deep-Learning\q4_1.png)
+![](https://github.com/Shmily3553/Coursera_Deep-Learning-Specialization/blob/master/Neural-Network-and-Deep-Learning/q4_1.png)
 
 **How many layers does this network have?**
 
@@ -49,7 +52,7 @@ True
 
 **9. Consider the following 2 hidden layer neural network:**
 
-![](C:\Users\shmily\Documents\GitHub\Coursera_Deep-Learning-Specialization\Neural-Network-and-Deep-Learning\q4_2.png)
+![](https://github.com/Shmily3553/Coursera_Deep-Learning-Specialization/blob/master/Neural-Network-and-Deep-Learning/q4_2.png)
 
 **Which of the following statements are True? (Check all that apply.)**
 

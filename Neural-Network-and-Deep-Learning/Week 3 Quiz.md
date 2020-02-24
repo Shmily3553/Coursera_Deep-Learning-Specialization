@@ -1,5 +1,7 @@
 ## Week 3 Quiz - Shallow Neural Networks
 
+All the answers showed are correct.
+
 **1. Which of the following are true? (Check all that apply.)**
 
 X is a matrix in which each column is one training example.
@@ -43,13 +45,13 @@ Each neuron in the first hidden layer will perform the same computation. So even
 
 False
 
-**8. You have built a network using the tanh activation for all the hidden units. You initialize the weights to relative large values, using up.random.randn(..,..)*1000. What will happen?**
+**8. You have built a network using the tanh activation for all the hidden units. You initialize the weights to relative large values, using up.random.randn(..,..) * 1000. What will happen?**
 
 This will cause the inputs of the tanh to also be vary large, thus causing gradients to be close to zero. The optimization algorithm will thus become slow.
 
 **9. Consider the following 1 hidden layer neural network:**
 
-![](C:\Users\shmily\Documents\GitHub\Coursera_Deep-Learning-Specialization\Neural-Network-and-Deep-Learning\q3_1.png)
+![](https://github.com/Shmily3553/Coursera_Deep-Learning-Specialization/blob/master/Neural-Network-and-Deep-Learning/q3_1.png)
 
 **Which of the following statement are True? (Check all that apply).**
 

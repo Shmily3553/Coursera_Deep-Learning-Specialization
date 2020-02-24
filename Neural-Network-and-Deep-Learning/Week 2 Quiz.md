@@ -1,5 +1,7 @@
 ## Week 2 Quiz - Neural Networks Basics
 
+All the answers showed are correct.
+
 **1. What does a neuron compute?**
 
 A neuron computes a linear function (z = Wx + b) followed by an activation function.
@@ -83,7 +85,7 @@ This will invoke broadcasting, so b is copied three times to become (3, 3), and 
 
 **10. Consider the following computation graph.**
 
-![q2_1](C:\Users\shmily\Documents\GitHub\Coursera_Deep-Learning-Specialization\Neural-Network-and-Deep-Learning\q2_1.png)
+![q2_1](https://github.com/Shmily3553/Coursera_Deep-Learning-Specialization/blob/master/Neural-Network-and-Deep-Learning/q2_1.png)
 
 **What is the output J?**
 
