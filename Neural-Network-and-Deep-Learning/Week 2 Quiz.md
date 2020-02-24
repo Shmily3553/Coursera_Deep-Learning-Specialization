@@ -85,7 +85,7 @@ This will invoke broadcasting, so b is copied three times to become (3, 3), and 
 
 **10. Consider the following computation graph.**
 
-![q2_1](https://github.com/Shmily3553/Coursera_Deep-Learning-Specialization/blob/master/Neural-Network-and-Deep-Learning/q2_1.png)
+![](https://github.com/Shmily3553/Coursera_Deep-Learning-Specialization/blob/master/Neural-Network-and-Deep-Learning/q2_1.png)
 
 **What is the output J?**
 
