@@ -38,7 +38,7 @@ c = a * b
 
 The computation cannot happen because the sizes don't match. It's going to be "Error"!
 
-**6. Suppose you have** $n_x$ **input features per example. Recall that ** $X = [x^{(1)}x^{(2)}...x^{(m)}]$ **. What is the dimension of X?**
+**6. Suppose you have $n_x$ input features per example. Recall that  $X = [x^{(1)}x^{(2)}...x^{(m)}]$ . What is the dimension of X?**
 
 $(n_x, m)$
 
@@ -85,7 +85,7 @@ This will invoke broadcasting, so b is copied three times to become (3, 3), and 
 
 **10. Consider the following computation graph.**
 
-![](https://github.com/Shmily3553/Coursera_Deep-Learning-Specialization/blob/master/Neural-Network-and-Deep-Learning/q2_1.png)
+![](https://github.com/Shmily3553/Coursera_Deep-Learning-Specialization/blob/master/Neural-Network-and-Deep-Learning/q3_1.png)
 
 **What is the output J?**
 
