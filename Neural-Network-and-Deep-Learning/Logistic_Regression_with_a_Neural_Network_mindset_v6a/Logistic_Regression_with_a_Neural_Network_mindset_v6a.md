@@ -760,24 +760,24 @@ d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 200
 **Expected Output**: 
 
 <table style="width:40%"> 
+<tr>
+    <td> **Cost after iteration 0 **  </td> 
+    <td> 0.693147 </td>
+</tr>
+  <tr>
+    <td> <center> $\vdots$ </center> </td> 
+    <td> <center> $\vdots$ </center> </td> 
+</tr>  
+<tr>
+    <td> **Train Accuracy**  </td> 
+    <td> 99.04306220095694 % </td>
+</tr>
 
-    <tr>
-        <td> **Cost after iteration 0 **  </td> 
-        <td> 0.693147 </td>
-    </tr>
-      <tr>
-        <td> <center> $\vdots$ </center> </td> 
-        <td> <center> $\vdots$ </center> </td> 
-    </tr>  
-    <tr>
-        <td> **Train Accuracy**  </td> 
-        <td> 99.04306220095694 % </td>
-    </tr>
-    
-    <tr>
-        <td>**Test Accuracy** </td> 
-        <td> 70.0 % </td>
-    </tr>
+<tr>
+    <td>**Test Accuracy** </td> 
+    <td> 70.0 % </td>
+</tr>
+
 </table> 
 
 
@@ -916,9 +916,9 @@ print("y = " + str(np.squeeze(my_predicted_image)) + ", your algorithm predicts 
 
 Finally, if you'd like, we invite you to try different things on this Notebook. Make sure you submit before trying anything. Once you submit, things you can play with include:
 
-​    - Play with the learning rate and the number of iterations
-​    - Try different initialization methods and compare the results
-​    - Test other preprocessings (center the data, or divide each row by its standard deviation)
+   - Play with the learning rate and the number of iterations
+   - Try different initialization methods and compare the results
+   - Test other preprocessings (center the data, or divide each row by its standard deviation)
 
 Bibliography:
 - http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/
