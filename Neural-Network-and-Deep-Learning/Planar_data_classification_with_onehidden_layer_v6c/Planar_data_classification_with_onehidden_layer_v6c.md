@@ -101,22 +101,22 @@ print ('I have m = %d training examples!' % (m))
 **Expected Output**:
        
 <table style="width:20%">
-  
+
   <tr>
     <td>**shape of X**</td>
     <td> (2, 400) </td> 
   </tr>
-  
+
   <tr>
     <td>**shape of Y**</td>
     <td>(1, 400) </td> 
   </tr>
-  
+
     <tr>
     <td>**m**</td>
     <td> 400 </td> 
   </tr>
-  
+
 </table>
 
 ## 3 - Simple Logistic Regression
@@ -158,7 +158,7 @@ print ('Accuracy of logistic regression: %d ' % float((np.dot(Y,LR_predictions) 
     <td>**Accuracy**</td>
     <td> 47% </td> 
   </tr>
-  
+
 </table>
 
 
@@ -168,8 +168,7 @@ print ('Accuracy of logistic regression: %d ' % float((np.dot(Y,LR_predictions) 
 
 Logistic regression did not work well on the "flower dataset". You are going to train a Neural Network with a single hidden layer.
 
-**Here is our model**:
-<img src="images/classification_kiank.png" style="width:600px;height:300px;">
+**Here is our model**: <img src="model.png" style="width:600px;height:300px;">
 
 **Mathematically**:
 
@@ -185,8 +184,8 @@ $$J = - \frac{1}{m} \sum\limits_{i = 0}^{m} \large\left(\small y^{(i)}\log\left(
 
 **Reminder**: The general methodology to build a Neural Network is to:
     1. Define the neural network structure ( # of input units,  # of hidden units, etc). 
-    2. Initialize the model's parameters
-    3. Loop:
+        2. Initialize the model's parameters
+        3. Loop:
         - Implement forward propagation
         - Compute loss
         - Implement backward propagation to get the gradients
@@ -247,17 +246,17 @@ print("The size of the output layer is: n_y = " + str(n_y))
     <td>**n_x**</td>
     <td> 5 </td> 
   </tr>
-  
+
     <tr>
     <td>**n_h**</td>
     <td> 4 </td> 
   </tr>
-  
+
     <tr>
     <td>**n_y**</td>
     <td> 2 </td> 
   </tr>
-  
+
 </table>
 
 ### 4.2 - Initialize the model's parameters ####
@@ -345,7 +344,7 @@ print("b2 = " + str(parameters["b2"]))
  [-0.01793436 -0.00841747]
  [ 0.00502881 -0.01245288]] </td> 
   </tr>
-  
+
   <tr>
     <td>**b1**</td>
     <td> [[ 0.]
@@ -353,18 +352,18 @@ print("b2 = " + str(parameters["b2"]))
  [ 0.]
  [ 0.]] </td> 
   </tr>
-  
+
   <tr>
     <td>**W2**</td>
     <td> [[-0.01057952 -0.00909008  0.00551454  0.02292208]]</td> 
   </tr>
-  
+
 
   <tr>
     <td>**b2**</td>
     <td> [[ 0.]] </td> 
   </tr>
-  
+
 </table>
 
 
@@ -513,7 +512,7 @@ print("cost = " + str(compute_cost(A2, Y_assess, parameters)))
     <td>**cost**</td>
     <td> 0.693058761... </td> 
   </tr>
-  
+
 </table>
 
 Using the cache computed during forward propagation, you can now implement backward propagation.
@@ -523,7 +522,7 @@ Using the cache computed during forward propagation, you can now implement backw
 **Instructions**:
 Backpropagation is usually the hardest (most mathematical) part in deep learning. To help you, here again is the slide from the lecture on backpropagation. You'll want to use the six equations on the right of this slide, since you are building a vectorized implementation.  
 
-<img src="images/grad_summary.png" style="width:600px;height:300px;">
+<img src="summary of gradient descent.png" style="width:600px;height:300px;">
 
 <!--
 $\frac{\partial \mathcal{J} }{ \partial z_{2}^{(i)} } = \frac{1}{m} (a^{[2](i)} - y^{(i)})$
@@ -545,6 +544,7 @@ $\frac{\partial \mathcal{J} _i }{ \partial b_1 } = \sum_i{\frac{\partial \mathca
     - dW2 = $\frac{\partial \mathcal{J} }{ \partial W_2 }$
     - db2 = $\frac{\partial \mathcal{J} }{ \partial b_2 }$
     
+
 !-->
 
 - Tips:
@@ -635,7 +635,7 @@ print ("db2 = "+ str(grads["db2"]))
  [-0.00156892  0.003893  ]
  [-0.00652037  0.01618243]] </td> 
   </tr>
-  
+
   <tr>
     <td>**db1**</td>
     <td>  [[ 0.00176201]
@@ -643,18 +643,18 @@ print ("db2 = "+ str(grads["db2"]))
  [-0.00091736]
  [-0.00381422]] </td> 
   </tr>
-  
+
   <tr>
     <td>**dW2**</td>
     <td> [[ 0.00078841  0.01765429 -0.00084166 -0.01022527]] </td> 
   </tr>
-  
+
 
   <tr>
     <td>**db2**</td>
     <td> [[-0.16655712]] </td> 
   </tr>
-  
+
 </table>  
 
 **Question**: Implement the update rule. Use gradient descent. You have to use (dW1, db1, dW2, db2) in order to update (W1, b1, W2, b2).
@@ -663,7 +663,7 @@ print ("db2 = "+ str(grads["db2"]))
 
 **Illustration**: The gradient descent algorithm with a good learning rate (converging) and a bad learning rate (diverging). Images courtesy of Adam Harley.
 
-<img src="images/sgd.gif" style="width:400;height:400;"> <img src="images/sgd_bad.gif" style="width:400;height:400;">
+<img src="learning rate 0.png" style="width:400;height:400;"> <img src="learning rate 1.png" style="width:400;height:400;">
 
 
 
@@ -748,7 +748,7 @@ print("b2 = " + str(parameters["b2"]))
  [-0.01653973 -0.02096177]
  [ 0.01046864 -0.05990141]]</td> 
   </tr>
-  
+
   <tr>
     <td>**b1**</td>
     <td> [[ -1.02420756e-06]
@@ -756,18 +756,18 @@ print("b2 = " + str(parameters["b2"]))
  [  8.32996807e-07]
  [ -3.20136836e-06]]</td> 
   </tr>
-  
+
   <tr>
     <td>**W2**</td>
     <td> [[-0.01041081 -0.04463285  0.01758031  0.04747113]] </td> 
   </tr>
-  
+
 
   <tr>
     <td>**b2**</td>
     <td> [[ 0.00010457]] </td> 
   </tr>
-  
+
 </table>  
 
 ### 4.4 - Integrate parts 4.1, 4.2 and 4.3 in nn_model() ####
@@ -889,7 +889,7 @@ print("b2 = " + str(parameters["b2"]))
  [ 0.5792005  -1.10397703]
  [ 0.76773391 -1.41477129]]</td> 
   </tr>
-  
+
   <tr>
     <td>**b1**</td>
     <td> [[ 0.287592  ]
@@ -897,18 +897,18 @@ print("b2 = " + str(parameters["b2"]))
  [-0.2431246 ]
  [-0.35772805]] </td> 
   </tr>
-  
+
   <tr>
     <td>**W2**</td>
     <td> [[-2.45566237 -3.27042274  2.00784958  3.36773273]] </td> 
   </tr>
-  
+
 
   <tr>
     <td>**b2**</td>
     <td> [[ 0.20459656]] </td> 
   </tr>
-  
+
 </table>  
 
 ### 4.5 Predictions
@@ -967,7 +967,7 @@ print("predictions mean = " + str(np.mean(predictions)))
     <td>**predictions mean**</td>
     <td> 0.666666666667 </td> 
   </tr>
-  
+
 </table>
 
 It is time to run the model and see how it performs on a planar dataset. Run the following code to test your model with a single hidden layer of $n_h$ hidden units.
@@ -989,7 +989,7 @@ plt.title("Decision Boundary for hidden layer size " + str(4))
     <td>**Cost after iteration 9000**</td>
     <td> 0.218607 </td> 
   </tr>
-  
+
 </table>
 
 
