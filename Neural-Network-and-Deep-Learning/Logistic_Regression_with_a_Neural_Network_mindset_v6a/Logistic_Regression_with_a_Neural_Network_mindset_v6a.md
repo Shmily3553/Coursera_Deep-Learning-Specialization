@@ -128,17 +128,17 @@ print ("test_set_y shape: " + str(test_set_y.shape))
     <td>**m_train**</td>
     <td> 209 </td> 
   </tr>
-  
+
   <tr>
     <td>**m_test**</td>
     <td> 50 </td> 
   </tr>
-  
+
   <tr>
     <td>**num_px**</td>
     <td> 64 </td> 
   </tr>
-  
+
 </table>
 
 
@@ -214,6 +214,7 @@ test_set_x = test_set_x_flatten/255.
 ```
 
 <font color='blue'>
+
 **What you need to remember:**
 
 Common steps for pre-processing a new dataset are:
@@ -227,7 +228,7 @@ It's time to design a simple algorithm to distinguish cat images from non-cat im
 
 You will build a Logistic Regression, using a Neural Network mindset. The following Figure explains why **Logistic Regression is actually a very simple Neural Network!**
 
-<img src="images/LogReg_kiank.png" style="width:650px;height:400px;">
+<img src="LogReg_kiank.png" style="width:650px;height:400px;">
 
 **Mathematical expression of the algorithm**:
 
@@ -239,12 +240,12 @@ $$ \mathcal{L}(a^{(i)}, y^{(i)}) =  - y^{(i)}  \log(a^{(i)}) - (1-y^{(i)} )  \lo
 The cost is then computed by summing over all training examples:
 $$ J = \frac{1}{m} \sum_{i=1}^m \mathcal{L}(a^{(i)}, y^{(i)})\tag{6}$$
 
-**Key steps**:
-In this exercise, you will carry out the following steps: 
-    - Initialize the parameters of the model
-    - Learn the parameters for the model by minimizing the cost  
-    - Use the learned parameters to make predictions (on the test set)
-    - Analyse the results and conclude
+**Key steps**: In this exercise, you will carry out the following steps: 
+
+   - Initialize the parameters of the model
+   - Learn the parameters for the model by minimizing the cost  
+   - Use the learned parameters to make predictions (on the test set)
+   - Analyse the results and conclude
 
 ## 4 - Building the parts of our algorithm ## 
 
@@ -561,7 +562,7 @@ print ("db = " + str(grads["db"]))
        <td>[[ 0.19033591]
  [ 0.12259159]] </td>
     </tr>
-    
+
     <tr>
        <td> **b** </td>
        <td> 1.92535983008 </td>
@@ -650,10 +651,10 @@ print ("predictions = " + str(predict(w, b, X)))
 
 </table>
 
-
 <font color='blue'>
-**What to remember:**
-You've implemented several functions that:
+
+**What to remember:** You've implemented several functions that:
+
 - Initialize (w,b)
 - Optimize the loss iteratively to learn parameters (w,b):
     - computing the cost and its gradient 
@@ -665,9 +666,10 @@ You've implemented several functions that:
 You will now see how the overall model is structured by putting together all the building blocks (functions implemented in the previous parts) together, in the right order.
 
 **Exercise:** Implement the model function. Use the following notation:
+
     - Y_prediction_test for your predictions on the test set
-    - Y_prediction_train for your predictions on the train set
-    - w, costs, grads for the outputs of optimize()
+        - Y_prediction_train for your predictions on the train set
+        - w, costs, grads for the outputs of optimize()
 
 
 ```python
@@ -771,7 +773,7 @@ d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 200
         <td> **Train Accuracy**  </td> 
         <td> 99.04306220095694 % </td>
     </tr>
-
+    
     <tr>
         <td>**Test Accuracy** </td> 
         <td> 70.0 % </td>
@@ -792,20 +794,6 @@ index = 1
 plt.imshow(test_set_x[:,index].reshape((num_px, num_px, 3)))
 print ("y = " + str(test_set_y[0, index]) + ", you predicted that it is a \"" + classes[d["Y_prediction_test"][0, index]].decode("utf-8") +  "\" picture.")
 ```
-
-
-    ---------------------------------------------------------------------------
-
-    ValueError                                Traceback (most recent call last)
-
-    <ipython-input-88-42a077b6c47a> in <module>()
-          1 # Example of a picture that was wrongly classified.
-          2 index = 1
-    ----> 3 plt.imshow(test_set_x[:,index].reshape((num_px, num_px, 3)))
-          4 print ("y = " + str(test_set_y[0, index]) + ", you predicted that it is a \"" + classes[d["Y_prediction_test"][0, index]].decode("utf-8") +  "\" picture.")
-
-
-    ValueError: total size of new array must be unchanged
 
 
 Let's also plot the cost function and the gradients.
@@ -877,7 +865,7 @@ plt.show()
     test accuracy: 36.0 %
     
     -------------------------------------------------------
-    
+
 
 
 
@@ -918,40 +906,19 @@ plt.imshow(image)
 print("y = " + str(np.squeeze(my_predicted_image)) + ", your algorithm predicts a \"" + classes[int(np.squeeze(my_predicted_image)),].decode("utf-8") +  "\" picture.")
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    ValueError                                Traceback (most recent call last)
-
-    <ipython-input-92-80c8f6a9b841> in <module>()
-          8 image = image/255.
-          9 my_image = scipy.misc.imresize(image, size=(num_px,num_px)).reshape((1, num_px*num_px*3)).T
-    ---> 10 my_predicted_image = predict(d["w"], d["b"], my_image)
-         11 
-         12 plt.imshow(image)
-
-
-    <ipython-input-71-a0e318867296> in predict(w, b, X)
-         16     m = X.shape[1]
-         17     Y_prediction = np.zeros((1,m))
-    ---> 18     w = w.reshape(X.shape[0], 1)
-         19 
-         20     # Compute vector "A" predicting the probabilities of a cat being present in the picture
-
-
-    ValueError: total size of new array must be unchanged
-
-
 <font color='blue'>
+
 **What to remember from this assignment:**
+
 1. Preprocessing the dataset is important.
 2. You implemented each function separately: initialize(), propagate(), optimize(). Then you built a model().
 3. Tuning the learning rate (which is an example of a "hyperparameter") can make a big difference to the algorithm. You will see more examples of this later in this course!
 
 Finally, if you'd like, we invite you to try different things on this Notebook. Make sure you submit before trying anything. Once you submit, things you can play with include:
-    - Play with the learning rate and the number of iterations
-    - Try different initialization methods and compare the results
-    - Test other preprocessings (center the data, or divide each row by its standard deviation)
+
+​    - Play with the learning rate and the number of iterations
+​    - Try different initialization methods and compare the results
+​    - Test other preprocessings (center the data, or divide each row by its standard deviation)
 
 Bibliography:
 - http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/
