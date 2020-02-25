@@ -58,6 +58,7 @@ print ("test: " + test)
 test: Hello World
 
 <font color='blue'>
+
 **What you need to remember:**
 
 - Run your cells using SHIFT+ENTER (or "Run cell")
@@ -761,8 +762,6 @@ print("L2 = " + str(L2(yhat,y)))
 </table>
 
 Congratulations on completing this assignment. We hope that this little warm-up exercise helps you in the future assignments, which will be more exciting and interesting!
-
-<font color='blue'>
 
 **What to remember:**
 
