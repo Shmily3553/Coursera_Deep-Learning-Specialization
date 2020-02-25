@@ -79,9 +79,7 @@ To build your neural network, you will be implementing several "helper functions
     - Stack [LINEAR->RELU] backward L-1 times and add [LINEAR->SIGMOID] backward in a new L_model_backward function
 - Finally update the parameters.
 
-<img src="images/final outline.png" style="width:800px;height:500px;">
-<caption><center> **Figure 1**</center></caption><br>
-
+<img src="final outline.png" style="width:800px;height:500px;">
 
 **Note** that for every forward function, there is a corresponding backward function. That is why at every step of your forward module you will be storing some values in a cache. The cached values are useful for computing gradients. In the backpropagation module you will then use the cache to calculate the gradients. This assignment will show you exactly how to carry out each of these steps. 
 
@@ -164,23 +162,22 @@ print("b2 = " + str(parameters["b2"]))
     <td> [[ 0.01624345 -0.00611756 -0.00528172]
  [-0.01072969  0.00865408 -0.02301539]] </td> 
   </tr>
-
   <tr>
     <td> **b1**</td>
     <td>[[ 0.]
  [ 0.]]</td> 
   </tr>
-  
+
   <tr>
     <td>**W2**</td>
     <td> [[ 0.01744812 -0.00761207]]</td>
   </tr>
-  
+
   <tr>
     <td> **b2** </td>
     <td> [[ 0.]] </td> 
   </tr>
-  
+
 </table>
 
 ### 3.2 - L-layer Neural Network
@@ -214,7 +211,7 @@ The initialization for a deeper L-layer neural network is more complicated becau
         <td>$Z^{[2]} = W^{[2]} A^{[1]} + b^{[2]}$ </td> 
         <td> $(n^{[2]}, 209)$ </td> 
     <tr>
-   
+       
        <tr>
         <td> $\vdots$ </td> 
         <td> $\vdots$  </td> 
@@ -222,7 +219,7 @@ The initialization for a deeper L-layer neural network is more complicated becau
         <td> $\vdots$</td> 
         <td> $\vdots$  </td> 
     <tr>
-    
+
    <tr>
         <td> **Layer L-1** </td> 
         <td> $(n^{[L-1]}, n^{[L-2]})$ </td> 
@@ -347,7 +344,7 @@ print("b2 = " + str(parameters["b2"]))
  [-0.01313865  0.00884622  0.00881318  0.01709573  0.00050034]
  [-0.00404677 -0.0054536  -0.01546477  0.00982367 -0.01101068]]</td> 
   </tr>
-  
+
   <tr>
     <td>**b1** </td>
     <td>[[ 0.]
@@ -355,21 +352,21 @@ print("b2 = " + str(parameters["b2"]))
  [ 0.]
  [ 0.]]</td> 
   </tr>
-  
+
   <tr>
     <td>**W2** </td>
     <td>[[-0.01185047 -0.0020565   0.01486148  0.00236716]
  [-0.01023785 -0.00712993  0.00625245 -0.00160513]
  [-0.00768836 -0.00230031  0.00745056  0.01976111]]</td> 
   </tr>
-  
+
   <tr>
     <td>**b2** </td>
     <td>[[ 0.]
  [ 0.]
  [ 0.]]</td> 
   </tr>
-  
+
 </table>
 
 ## 4 - Forward propagation module
@@ -434,12 +431,12 @@ print("Z = " + str(Z))
 **Expected output**:
 
 <table style="width:35%">
-  
+
   <tr>
     <td> **Z** </td>
     <td> [[ 3.26295337 -1.23429987]] </td> 
   </tr>
-  
+
 </table>
 
 ### 4.2 - Linear-Activation Forward
@@ -535,14 +532,14 @@ print("With ReLU: A = " + str(A))
 
 For even more convenience when implementing the $L$-layer Neural Net, you will need a function that replicates the previous one (`linear_activation_forward` with RELU) $L-1$ times, then follows that with one `linear_activation_forward` with SIGMOID.
 
-<img src="images/model_architecture_kiank.png" style="width:600px;height:300px;">
-<caption><center> **Figure 2** : *[LINEAR -> RELU] $\times$ (L-1) -> LINEAR -> SIGMOID* model</center></caption><br>
+<img src="model_architecture_kiank.png" style="width:600px;height:300px;">
 
 **Exercise**: Implement the forward propagation of the above model.
 
 **Instruction**: In the code below, the variable `AL` will denote $A^{[L]} = \sigma(Z^{[L]}) = \sigma(W^{[L]} A^{[L-1]} + b^{[L]})$. (This is sometimes also called `Yhat`, i.e., this is $\hat{Y}$.) 
 
 **Tips**:
+
 - Use the functions you had previously written 
 - Use a for loop to replicate [LINEAR->RELU] (L-1) times
 - Don't forget to keep track of the caches in the "caches" list. To add a new value `c` to a `list`, you can use `list.append(c)`.
@@ -674,8 +671,8 @@ print("cost = " + str(compute_cost(AL, Y)))
 Just like with forward propagation, you will implement helper functions for backpropagation. Remember that back propagation is used to calculate the gradient of the loss function with respect to the parameters. 
 
 **Reminder**: 
-<img src="images/backprop_kiank.png" style="width:650px;height:250px;">
-<caption><center> **Figure 3** : Forward and Backward propagation for *LINEAR->RELU->LINEAR->SIGMOID* <br> *The purple blocks represent the forward propagation, and the red blocks represent the backward propagation.*  </center></caption>
+
+<img src="backprop_kiank.png" style="width:650px;height:250px;">
 
 <!-- 
 For those of you who are expert in calculus (you don't need to be to do this assignment), the chain rule of calculus can be used to derive the derivative of the loss $\mathcal{L}$ with respect to $z^{[1]}$ in a 2-layer network as follows:
@@ -700,8 +697,7 @@ For layer $l$, the linear part is: $Z^{[l]} = W^{[l]} A^{[l-1]} + b^{[l]}$ (foll
 
 Suppose you have already calculated the derivative $dZ^{[l]} = \frac{\partial \mathcal{L} }{\partial Z^{[l]}}$. You want to get $(dW^{[l]}, db^{[l]}, dA^{[l-1]})$.
 
-<img src="images/linearback_kiank.png" style="width:250px;height:300px;">
-<caption><center> **Figure 4** </center></caption>
+<img src="linearback_kiank.png" style="width:250px;height:300px;">
 
 The three outputs $(dW^{[l]}, db^{[l]}, dA^{[l-1]})$ are computed using the input $dZ^{[l]}$.Here are the formulas you need:
 $$ dW^{[l]} = \frac{\partial \mathcal{J} }{\partial W^{[l]}} = \frac{1}{m} dZ^{[l]} A^{[l-1] T} \tag{8}$$
@@ -757,9 +753,9 @@ print ("db = " + str(db))
 
 
     ---------------------------------------------------------------------------
-
+    
     AssertionError                            Traceback (most recent call last)
-
+    
     <ipython-input-21-fb7a58b39ba9> in <module>()
           2 dZ, linear_cache = linear_backward_test_case()
           3 
@@ -778,9 +774,8 @@ print ("db = " + str(db))
 
     AssertionError: 
 
+**Expected Output**:    
 
-** Expected Output**:
-    
 ```
 dA_prev = 
  [[-1.15171336  0.06718465 -0.3204696   2.09812712]
@@ -874,9 +869,9 @@ print ("db = " + str(db))
 
 
     ---------------------------------------------------------------------------
-
+    
     AssertionError                            Traceback (most recent call last)
-
+    
     <ipython-input-19-3f1a403310df> in <module>()
           1 dAL, linear_activation_cache = linear_activation_backward_test_case()
           2 
@@ -914,15 +909,17 @@ print ("db = " + str(db))
  [-0.05743092 -0.00576154]] </td> 
 
   </tr> 
-  
-    <tr>
-    <td > dW </td> 
-           <td > [[ 0.10266786  0.09778551 -0.01968084]] </td> 
+
+<tr>
+<td > dW </td> 
+       <td > [[ 0.10266786  0.09778551 -0.01968084]] </td> 
+
   </tr> 
-  
-    <tr>
-    <td > db </td> 
-           <td > [[-0.05729622]] </td> 
+
+<tr>
+<td > db </td> 
+       <td > [[-0.05729622]] </td> 
+
   </tr> 
 </table>
 
@@ -938,15 +935,17 @@ print ("db = " + str(db))
  [-0.2298228   0.        ]] </td> 
 
   </tr> 
-  
-    <tr>
-    <td > dW </td> 
-           <td > [[ 0.44513824  0.37371418 -0.10478989]] </td> 
+
+<tr>
+<td > dW </td> 
+       <td > [[ 0.44513824  0.37371418 -0.10478989]] </td> 
+
   </tr> 
-  
-    <tr>
-    <td > db </td> 
-           <td > [[-0.20837892]] </td> 
+
+<tr>
+<td > db </td> 
+       <td > [[-0.20837892]] </td> 
+
   </tr> 
 </table>
 
@@ -956,14 +955,13 @@ print ("db = " + str(db))
 
 Now you will implement the backward function for the whole network. Recall that when you implemented the `L_model_forward` function, at each iteration, you stored a cache which contains (X,W,b, and z). In the back propagation module, you will use those variables to compute the gradients. Therefore, in the `L_model_backward` function, you will iterate through all the hidden layers backward, starting from layer $L$. On each step, you will use the cached values for layer $l$ to backpropagate through layer $l$. Figure 5 below shows the backward pass. 
 
+<img src="mn_backward.png" style="width:450px;height:300px;">
 
-<img src="images/mn_backward.png" style="width:450px;height:300px;">
-<caption><center>  **Figure 5** : Backward pass  </center></caption>
-
-** Initializing backpropagation**:
+**Initializing backpropagation**:
 To backpropagate through this network, we know that the output is, 
 $A^{[L]} = \sigma(Z^{[L]})$. Your code thus needs to compute `dAL` $= \frac{\partial \mathcal{L}}{\partial A^{[L]}}$.
 To do so, use this formula (derived using calculus which you don't need in-depth knowledge of):
+
 ```python
 dAL = - (np.divide(Y, AL) - np.divide(1 - Y, 1 - AL)) # derivative of cost with respect to AL
 ```
@@ -1037,9 +1035,9 @@ print_grads(grads)
 
 
     ---------------------------------------------------------------------------
-
+    
     AssertionError                            Traceback (most recent call last)
-
+    
     <ipython-input-23-525dcf1dcad4> in <module>()
           1 AL, Y_assess, caches = L_model_backward_test_case()
     ----> 2 grads = L_model_backward(AL, Y_assess, caches)
@@ -1068,21 +1066,22 @@ print_grads(grads)
 **Expected Output**
 
 <table style="width:60%">
-  
+
   <tr>
     <td > dW1 </td> 
            <td > [[ 0.41010002  0.07807203  0.13798444  0.10502167]
  [ 0.          0.          0.          0.        ]
  [ 0.05283652  0.01005865  0.01777766  0.0135308 ]] </td> 
   </tr> 
-  
-    <tr>
-    <td > db1 </td> 
-           <td > [[-0.22007063]
+
+<tr>
+<td > db1 </td> 
+       <td > [[-0.22007063]
+
  [ 0.        ]
  [-0.02835349]] </td> 
   </tr> 
-  
+
   <tr>
   <td > dA1 </td> 
            <td > [[ 0.12913162 -0.44014127]
@@ -1168,10 +1167,10 @@ print ("b2 = "+ str(parameters["b2"]))
  [-1.76569676 -0.80627147  0.51115557 -1.18258802]
  [-1.0535704  -0.86128581  0.68284052  2.20374577]] </td> 
   </tr> 
-  
-    <tr>
-    <td > b1 </td> 
-           <td > [[-0.04659241]
+<tr>
+<td > b1 </td> 
+       <td > [[-0.04659241]
+
  [-1.28888275]
  [ 0.53405496]] </td> 
   </tr> 
@@ -1179,10 +1178,11 @@ print ("b2 = "+ str(parameters["b2"]))
     <td > W2 </td> 
            <td > [[-0.55569196  0.0354055   1.32964895]]</td> 
   </tr> 
-  
-    <tr>
-    <td > b2 </td> 
-           <td > [[-0.84610769]] </td> 
+
+<tr>
+<td > b2 </td> 
+       <td > [[-0.84610769]] </td> 
+
   </tr> 
 </table>
 
