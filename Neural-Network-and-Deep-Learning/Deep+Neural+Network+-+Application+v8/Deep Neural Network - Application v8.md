@@ -72,7 +72,7 @@ print ("y = " + str(train_y[0,index]) + ". It's a " + classes[train_y[0,index]].
 
 
 
-![png](output_7_1.png)
+![](output_7_1.png)
 
 
 
@@ -102,9 +102,7 @@ print ("test_y shape: " + str(test_y.shape))
 
 As usual, you reshape and standardize the images before feeding them to the network. The code is given in the cell below.
 
-<img src="images/imvectorkiank.png" style="width:450px;height:300px;">
-
-<caption><center> <u>Figure 1</u>: Image to vector conversion. <br> </center></caption>
+<img src="imvectorkiank.png" style="width:450px;height:300px;">
 
 
 ```python
@@ -141,8 +139,7 @@ Let's look at the two architectures.
 
 ### 3.1 - 2-layer neural network
 
-<img src="images/2layerNN_kiank.png" style="width:650px;height:400px;">
-<caption><center> <u>Figure 2</u>: 2-layer neural network. <br> The model can be summarized as: ***INPUT -> LINEAR -> RELU -> LINEAR -> SIGMOID -> OUTPUT***. </center></caption>
+<img src="2layerNN_kiank.png" style="width:650px;height:400px;">
 
 <u>Detailed Architecture of figure 2</u>:
 - The input is a (64,64,3) image which is flattened to a vector of size $(12288,1)$. 
@@ -156,8 +153,7 @@ Let's look at the two architectures.
 
 It is hard to represent an L-layer deep neural network with the above representation. However, here is a simplified network representation:
 
-<img src="images/LlayerNN_kiank.png" style="width:650px;height:400px;">
-<caption><center> <u>Figure 3</u>: L-layer neural network. <br> The model can be summarized as: ***[LINEAR -> RELU] $\times$ (L-1) -> LINEAR -> SIGMOID***</center></caption>
+<img src="LlayerNN_kiank.png" style="width:650px;height:400px;">
 
 <u>Detailed Architecture of figure 3</u>:
 - The input is a (64,64,3) image which is flattened to a vector of size (12288,1).
@@ -168,13 +164,14 @@ It is hard to represent an L-layer deep neural network with the above representa
 ### 3.3 - General methodology
 
 As usual you will follow the Deep Learning methodology to build the model:
+
     1. Initialize parameters / Define hyperparameters
-    2. Loop for num_iterations:
-        a. Forward propagation
-        b. Compute cost function
-        c. Backward propagation
-        d. Update parameters (using parameters, and grads from backprop) 
-    4. Use trained parameters to predict labels
+       2. Loop for num_iterations:
+                  a. Forward propagation
+                  b. Compute cost function
+                  c. Backward propagation
+                  d. Update parameters (using parameters, and grads from backprop)
+       3. Use trained parameters to predict labels
 
 Let's now implement those two models!
 
