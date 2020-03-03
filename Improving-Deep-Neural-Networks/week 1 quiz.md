@@ -24,7 +24,7 @@ Get more training data
 
 **5. What is weight decay?**
 
-A regularization technique (such as L2 regularization) that results in gradient descent shrinking the weights on every iteration.
+A regularization technique (such as L2 regularization) that results in gradient descent shrinking the weights on every iteration
 
 **6. What happens when you increase the regularization hyperparameter lambda?**
 
@@ -32,7 +32,7 @@ Weights are pushed toward becoming smaller (closer to 0)
 
 **7. With the inverted dropout technique, at test time:**
 
-You do not apply dropout (do not randomly eliminate units), and do not keep the 1/keep_prob factor in the calculations used in training.
+You do not apply dropout (do not randomly eliminate units), and do not keep the 1/keep_prob factor in the calculations used in training
 
 **8. Increasing the parameter keep_prob from (say) 0.5 to 0.6 will likely cause the following: (Check the two that apply.)**
 
