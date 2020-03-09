@@ -34,7 +34,7 @@ for(i in range(1, len(layer_dims))):
 
 **6. Consider the following neural network.**
 
-![](https://github.com/Shmily3553/Coursera_Deep-Learning-Specialization/blob/master/Neural-Network-and-Deep-Learning/q4_1.png)
+![](image/q4_1.png)
 
 **How many layers does this network have?**
 
@@ -52,7 +52,7 @@ True
 
 **9. Consider the following 2 hidden layer neural network:**
 
-![](https://github.com/Shmily3553/Coursera_Deep-Learning-Specialization/blob/master/Neural-Network-and-Deep-Learning/q4_2.png)
+![](image/q4_2.png)
 
 **Which of the following statements are True? (Check all that apply.)**
 

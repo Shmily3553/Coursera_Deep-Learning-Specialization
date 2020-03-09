@@ -16,7 +16,7 @@ We have access to a lot more data.
 
 **3. Recall this diagram of iterating over different ML ideas. Which if the statements below are true? (Check all that apply.)**
 
-![](https://github.com/Shmily3553/Coursera_Deep-Learning-Specialization/blob/master/Neural-Network-and-Deep-Learning/q1_1.png)
+![](image/q1_1.png)
 
 Being able to try out ideas quickly allows deep learning engineers to iterate more quickly.
 
@@ -30,7 +30,7 @@ False.
 
 **5. Which one of these plots represents a ReLU activation function?**
 
-![q1_2](https://github.com/Shmily3553/Coursera_Deep-Learning-Specialization/blob/master/Neural-Network-and-Deep-Learning/q1_2.png)
+![q1_2](image/q1_2.png)
 
 **6. Image for cat recognition is an example of "structured" data, because it is represented as a structured array in a computer. True/False?**
 
@@ -46,7 +46,7 @@ It is applicable when the input/output is a sequence (e.g. a sequence of words).
 
 **9. In this diagram which we hand-drew in lecture, what do the horizonal axis (x-axis) and vertical axis (y-axis) represent?**
 
-<img src="https://github.com/Shmily3553/Coursera_Deep-Learning-Specialization/blob/master/Neural-Network-and-Deep-Learning/q1_3.png" alt="q1_3" style="zoom:90%;" />
+<img src="image/q1_3.png" alt="q1_3" style="zoom:90%;" />
 
 x-axis is the amount of data
 
