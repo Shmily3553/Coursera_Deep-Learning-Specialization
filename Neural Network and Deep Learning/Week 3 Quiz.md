@@ -6,7 +6,7 @@ All the answers showed are correct.
 
 X is a matrix in which each column is one training example.
 
-$a^{[2](12)}$ denotes the activation vector of the $2^{nd}$ layer for the $12^{th}$ training example.
+$ a^{[2](12)} $ denotes the activation vector of the $2^{nd}$ layer for the $12^{th}$ training example.
 
 $a_4^{[2]}$ is the activation output by the $4^{th}$ neuron of the $2^{nd}$ layer.
 
@@ -51,7 +51,7 @@ This will cause the inputs of the tanh to also be vary large, thus causing gradi
 
 **9. Consider the following 1 hidden layer neural network:**
 
-![](images/q3_1.png)
+<img src="images/q3_1.png" style="zoom:80%;" />
 
 **Which of the following statement are True? (Check all that apply).**
 
