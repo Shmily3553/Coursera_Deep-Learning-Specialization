@@ -16,7 +16,7 @@ We have access to a lot more data.
 
 **3. Recall this diagram of iterating over different ML ideas. Which if the statements below are true? (Check all that apply.)**
 
-![](images\q1_1.png)
+![](images/q1_1.png)
 
 Being able to try out ideas quickly allows deep learning engineers to iterate more quickly.
 
