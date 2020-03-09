@@ -51,7 +51,7 @@ This will cause the inputs of the tanh to also be vary large, thus causing gradi
 
 **9. Consider the following 1 hidden layer neural network:**
 
-![](image/q3_1.png)
+![](images/q3_1.png)
 
 **Which of the following statement are True? (Check all that apply).**
 

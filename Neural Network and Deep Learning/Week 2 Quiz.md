@@ -85,7 +85,7 @@ This will invoke broadcasting, so b is copied three times to become (3, 3), and 
 
 **10. Consider the following computation graph.**
 
-![](image/q2_1.png)
+![](images/q2_1.png)
 
 **What is the output J?**
 

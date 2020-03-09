@@ -58,9 +58,7 @@ print ("test: " + test)
 test: Hello World
 
 <font color='blue'>
-
-**What you need to remember:**
-
+**What you need to remember**:
 - Run your cells using SHIFT+ENTER (or "Run cell")
 - Write code in the designated areas using Python 3 only
 - Do not modify the code outside of the designated areas
@@ -78,7 +76,7 @@ Before using np.exp(), you will use math.exp() to implement the sigmoid function
 **Reminder**:
 $sigmoid(x) = \frac{1}{1+e^{-x}}$ is sometimes also known as the logistic function. It is a non-linear function used not only in Machine Learning (Logistic Regression), but also in Deep Learning.
 
-<img src="sigmoid.png" style="width:500px;height:228px;">
+<img src="images/Sigmoid.png" style="width:500px;height:228px;">
 
 To refer to a function belonging to a specific package you could call it using package_name.function(). Run the code below to see an example with math.exp().
 
@@ -283,10 +281,9 @@ Two common numpy functions used in deep learning are [np.shape](https://docs.sci
 
 For example, in computer science, an image is represented by a 3D array of shape $(length, height, depth = 3)$. However, when you read an image as the input of an algorithm you convert it to a vector of shape $(length*height*3, 1)$. In other words, you "unroll", or reshape, the 3D array into a 1D vector.
 
-<img src="image2vector_kiank.png" style="width:500px;height:300;">
+<img src="images/image2vector_kiank.png" style="width:500px;height:300;">
 
 **Exercise**: Implement `image2vector()` that takes an input of shape (length, height, 3) and returns a vector of shape (length\*height\*3, 1). For example, if you would like to reshape an array v of shape (a, b, c) into a vector of shape (a*b,c) you would do:
-
 ``` python
 v = v.reshape((v.shape[0]*v.shape[1], v.shape[2])) # v.shape[0] = a ; v.shape[1] = b ; v.shape[2] = c
 ```
@@ -374,8 +371,8 @@ print ("image2vector(image) = " + str(image2vector(image)))
  [ 0.34144279]
  [ 0.94630077]]</td> 
      </tr>
-​    
-
+    
+   
 </table>
 
 ### 1.4 - Normalizing rows
@@ -445,7 +442,7 @@ print("normalizeRows(x) = " + str(normalizeRows(x)))
  [ 0.13736056  0.82416338  0.54944226]]</td> 
      </tr>
     
-
+   
 </table>
 
 **Note**:
@@ -575,9 +572,7 @@ print("softmax(x) = " + str(softmax(x)))
 Congratulations! You now have a pretty good understanding of python numpy and have implemented a few useful functions that you will be using in deep learning.
 
 <font color='blue'>
-
 **What you need to remember:**
-
 - np.exp(x) works for any np.array x and applies the exponential function to every coordinate
 - the sigmoid function and its gradient
 - image2vector is commonly used in deep learning
@@ -763,8 +758,8 @@ print("L2 = " + str(L2(yhat,y)))
 
 Congratulations on completing this assignment. We hope that this little warm-up exercise helps you in the future assignments, which will be more exciting and interesting!
 
+<font color='blue'>
 **What to remember:**
-
 - Vectorization is very important in deep learning. It provides computational efficiency and clarity.
 - You have reviewed the L1 and L2 loss.
 - You are familiar with many numpy functions such as np.sum, np.dot, np.multiply, np.maximum, etc...
