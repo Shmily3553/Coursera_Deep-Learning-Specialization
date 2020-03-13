@@ -41,7 +41,7 @@ Consider a 1D linear function $J(\theta) = \theta x$. The model contains only a 
 
 You will implement code to compute $J(.)$ and its derivative $\frac{\partial J}{\partial \theta}$. You will then use gradient checking to make sure your derivative computation for $J$ is correct. 
 
-<img src="images/1Dgrad_kiank.png" style="width:600px;height:250px;">
+<img src="images\1Dgrad_kiank.png" style="width:600px;height:250px;">
 <caption><center> <u> **Figure 1** </u>: **1D linear model**<br> </center></caption>
 
 The diagram above shows the key computation steps: First start with $x$, then evaluate the function $J(x)$ ("forward propagation"). Then compute the derivative $\frac{\partial J}{\partial \theta}$ ("backward propagation"). 
@@ -80,7 +80,6 @@ print ("J = " + str(J))
 
     J = 8
 
-
 **Expected Output**:
 
 <table style=>
@@ -89,6 +88,7 @@ print ("J = " + str(J))
         <td> 8</td>
     </tr>
 </table>
+
 
 **Exercise**: Now, implement the backward propagation step (derivative computation) of Figure 1. That is, compute the derivative of $J(\theta) = \theta x$ with respect to $\theta$. To save you from doing the calculus, you should get $dtheta = \frac { \partial J }{ \partial \theta} = x$.
 
@@ -226,7 +226,7 @@ Now, in the more general case, your cost function $J$ has more than a single 1D 
 
 The following figure describes the forward and backward propagation of your fraud detection model.
 
-<img src="images/NDgrad_kiank.png" style="width:600px;height:400px;">
+<img src="images\NDgrad_kiank.png" style="width:600px;height:400px;">
 <caption><center> <u> **Figure 2** </u>: **deep neural network**<br>*LINEAR -> RELU -> LINEAR -> RELU -> LINEAR -> SIGMOID*</center></caption>
 
 Let's look at your implementations for forward propagation and backward propagation. 
@@ -331,7 +331,7 @@ However, $\theta$ is not a scalar anymore. It is a dictionary called "parameters
 
 The inverse function is "`vector_to_dictionary`" which outputs back the "parameters" dictionary.
 
-<img src="images/dictionary_to_vector.png" style="width:600px;height:400px;">
+<img src="images\dictionary_to_vector.png" style="width:600px;height:400px;">
 <caption><center> <u> **Figure 2** </u>: **dictionary_to_vector() and vector_to_dictionary()**<br> You will need these functions in gradient_check_n()</center></caption>
 
 We have also converted the "gradients" dictionary into a vector "grad" using gradients_to_vector(). You don't need to worry about that.
@@ -425,7 +425,7 @@ gradients = backward_propagation_n(X, Y, cache)
 difference = gradient_check_n(parameters, gradients, X, Y)
 ```
 
-    [93mThere is a mistake in the backward propagation! difference = 0.285093156654[0m
+    There is a mistake in the backward propagation! difference = 0.285093156654
 
 
 **Expected output**:
@@ -447,12 +447,7 @@ Can you get gradient check to declare your derivative computation correct? Even 
 
 Congrats, you can be confident that your deep learning model for fraud detection is working correctly! You can even use this to convince your CEO. :) 
 
-<font color='blue'>
+
 **What you should remember from this notebook**:
 - Gradient checking verifies closeness between the gradients from backpropagation and the numerical approximation of the gradient (computed using forward propagation).
 - Gradient checking is slow, so we don't run it in every iteration of training. You would usually run it only to make sure your code is correct, then turn it off and use backprop for the actual learning process. 
-
-
-```python
-
-```
