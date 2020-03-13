@@ -18,7 +18,7 @@ If the mini-batch size is m, you end up with batch gradient descent, which has t
 
 **4. Suppose your learning algorithm's cost $J$, plotted as a function of the number of iterations, looks like this:**
 
-![](images\q2_1.png)
+![](images/q2_1.png)
 
 **Which of the following do you agree with?**
 
