@@ -39,8 +39,10 @@ plt.rcParams['image.cmap'] = 'gray'
 
 **Problem Statement**: You have just been hired as an AI expert by the French Football Corporation. They would like you to recommend positions where France's goal keeper should kick the ball so that the French team's players can then hit it with their head. 
 
-<img src="images/field_kiank.png" style="width:600px;height:350px;">
-<caption><center> <u> **Figure 1** </u>: **Football field**<br> The goal keeper kicks the ball in the air, the players of each team are fighting to hit the ball with their head </center></caption>
+<img src="images\field_kiank.png" style="width:600px;height:350px;">
+ **Figure 1** : **Football field**
+
+The goal keeper kicks the ball in the air, the players of each team are fighting to hit the ball with their head.
 
 
 They give you the following 2D dataset from France's past 10 games.
@@ -194,13 +196,13 @@ The non-regularized model is obviously overfitting the training set. It is fitti
 ## 2 - L2 Regularization
 
 The standard way to avoid overfitting is called **L2 regularization**. It consists of appropriately modifying your cost function, from:
-$$J = -\frac{1}{m} \sum\limits_{i = 1}^{m} \large{(}\small  y^{(i)}\log\left(a^{[L](i)}\right) + (1-y^{(i)})\log\left(1- a^{[L](i)}\right) \large{)} \tag{1}$$
-To:
-$$J_{regularized} = \small \underbrace{-\frac{1}{m} \sum\limits_{i = 1}^{m} \large{(}\small y^{(i)}\log\left(a^{[L](i)}\right) + (1-y^{(i)})\log\left(1- a^{[L](i)}\right) \large{)} }_\text{cross-entropy cost} + \underbrace{\frac{1}{m} \frac{\lambda}{2} \sum\limits_l\sum\limits_k\sum\limits_j W_{k,j}^{[l]2} }_\text{L2 regularization cost} \tag{2}$$
+
+![](L2.png)
 
 Let's modify your cost and observe the consequences.
 
 **Exercise**: Implement `compute_cost_with_regularization()` which computes the cost given by formula (2). To calculate $\sum\limits_k\sum\limits_j W_{k,j}^{[l]2}$  , use :
+
 ```python
 np.sum(np.square(Wl))
 ```
@@ -258,10 +260,7 @@ print("cost = " + str(compute_cost_with_regularization(A3, Y_assess, parameters,
         <td>
     1.78648594516
     </td>
-    
     </tr>
-
-</table> 
 
 Of course, because you changed the cost, you have to change backward propagation as well! All the gradients have to be computed with respect to this new cost. 
 
@@ -400,12 +399,12 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 - The value of $\lambda$ is a hyperparameter that you can tune using a dev set.
 - L2 regularization makes your decision boundary smoother. If $\lambda$ is too large, it is also possible to "oversmooth", resulting in a model with high bias.
 
-**What is L2-regularization actually doing?**:
+**What is L2-regularization actually doing?**
 
 L2-regularization relies on the assumption that a model with small weights is simpler than a model with large weights. Thus, by penalizing the square values of the weights in the cost function you drive all the weights to smaller values. It becomes too costly for the cost to have large weights! This leads to a smoother model in which the output changes more slowly as the input changes. 
 
-<font color='blue'>
 **What you should remember** -- the implications of L2-regularization on:
+
 - The cost computation:
     - A regularization term is added to the cost
 - The backpropagation function:
@@ -431,15 +430,17 @@ To understand drop-out, consider this conversation with a friend:
 <video width="620" height="440" src="images/dropout1_kiank.mp4" type="video/mp4" controls>
 </video>
 </center>
-<br>
-<caption><center> <u> Figure 2 </u>: Drop-out on the second hidden layer. <br> At each iteration, you shut down (= set to zero) each neuron of a layer with probability $1 - keep\_prob$ or keep it with probability $keep\_prob$ (50% here). The dropped neurons don't contribute to the training in both the forward and backward propagations of the iteration. </center></caption>
+**Figure 2 : Drop-out on the second hidden layer**
+
+At each iteration, you shut down (= set to zero) each neuron of a layer with probability $1 - keep\_prob$ or keep it with probability $keep\_prob$ (50% here). The dropped neurons don't contribute to the training in both the forward and backward propagations of the iteration. 
 
 <center>
 <video width="620" height="440" src="images/dropout2_kiank.mp4" type="video/mp4" controls>
 </video>
 </center>
+**Figure 3 : Drop-out on the first and third hidden layers**  
 
-<caption><center> <u> Figure 3 </u>: Drop-out on the first and third hidden layers. <br> $1^{st}$ layer: we shut down on average 40% of the neurons.  $3^{rd}$ layer: we shut down on average 20% of the neurons. </center></caption>
+$1^{st}$ layer: we shut down on average 40% of the neurons.  $3^{rd}$ layer: we shut down on average 20% of the neurons. 
 
 
 When you shut some neurons down, you actually modify your model. The idea behind drop-out is that at each iteration, you train a different model that uses only a subset of your neurons. With dropout, your neurons thus become less sensitive to the activation of one other specific neuron, because that other neuron might be shut down at any time. 
@@ -450,14 +451,12 @@ When you shut some neurons down, you actually modify your model. The idea behind
 
 **Instructions**:
 You would like to shut down some neurons in the first and second layers. To do that, you are going to carry out 4 Steps:
-1. In lecture, we dicussed creating a variable $d^{[1]}$ with the same shape as $a^{[1]}$ using `np.random.rand()` to randomly get numbers between 0 and 1. Here, you will use a vectorized implementation, so create a random matrix $D^{[1]} = [d^{[1](1)} d^{[1](2)} ... d^{[1](m)}] $ of the same dimension as $A^{[1]}$.
+1. In lecture, we dicussed creating a variable $d^{[1]}$ with the same shape as $a^{[1]}$ using `np.random.rand()` to randomly get numbers between 0 and 1. Here, you will use a vectorized implementation, so create a random matrix ${D^{[1]} = [d^{[1](1)} d^{[1](2)} ... d^{[1](m)}]} $ of the same dimension as $A^{[1]}$.
 2. Set each entry of $D^{[1]}$ to be 1 with probability (`keep_prob`), and 0 otherwise.
 
 **Hint:** Let's say that keep_prob = 0.8, which means that we want to keep about 80% of the neurons and drop out about 20% of them.  We want to generate a vector that has 1's and 0's, where about 80% of them are 1 and about 20% are 0.
-This python statement:  
-`X = (X < keep_prob).astype(int)`  
 
-is conceptually the same as this if-else statement (for the simple case of a one-dimensional array) :
+This python statement: `X = (X < keep_prob).astype(int)`  is conceptually the same as this if-else statement (for the simple case of a one-dimensional array) :
 
 ```
 for i,v in enumerate(x):
@@ -553,10 +552,7 @@ print ("A3 = " + str(A3))
         <td>
     [[ 0.36974721  0.00305176  0.04565099  0.49683389  0.36974721]]
     </td>
-    
     </tr>
-
-</table> 
 
 ### 3.2 - Backward propagation with dropout
 
@@ -706,8 +702,8 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
 - A **common mistake** when using dropout is to use it both in training and testing. You should use dropout (randomly eliminate nodes) only in training. 
 - Deep learning frameworks like [tensorflow](https://www.tensorflow.org/api_docs/python/tf/nn/dropout), [PaddlePaddle](http://doc.paddlepaddle.org/release_doc/0.9.0/doc/ui/api/trainer_config_helpers/attrs.html), [keras](https://keras.io/layers/core/#dropout) or [caffe](http://caffe.berkeleyvision.org/tutorial/layers/dropout.html) come with a dropout layer implementation. Don't stress - you will soon learn some of these frameworks.
 
-<font color='blue'>
 **What you should remember about dropout:**
+
 - Dropout is a regularization technique.
 - You only use dropout during training. Don't use dropout (randomly eliminate nodes) during test time.
 - Apply dropout both during forward and backward propagation.
@@ -728,46 +724,43 @@ plot_decision_boundary(lambda x: predict_dec(parameters, x.T), train_X, train_Y)
         <td>
         **test accuracy**
         </td>
-
     </tr>
-        <td>
-        3-layer NN without regularization
-        </td>
-        <td>
-        95%
-        </td>
-        <td>
-        91.5%
-        </td>
-    <tr>
-        <td>
-        3-layer NN with L2-regularization
-        </td>
-        <td>
-        94%
-        </td>
-        <td>
-        93%
-        </td>
-    </tr>
-    <tr>
-        <td>
-        3-layer NN with dropout
-        </td>
-        <td>
-        93%
-        </td>
-        <td>
-        95%
-        </td>
-    </tr>
-</table> 
+    	<td>
+    	3-layer NN without regularization
+    	</td>
+    	<td>
+    	95%
+    	</td>
+    	<td>
+    	91.5%
+    	</td>
+	<tr>
+    	<td>
+    	3-layer NN with L2-regularization
+    	</td>
+    	<td>
+    	94%
+    	</td>
+    	<td>
+    	93%
+    	</td>
+	</tr>
+	<tr>
+   		<td>
+    	3-layer NN with dropout
+    	</td>
+    	<td>
+    	93%
+    	</td>
+    	<td>
+    	95%
+    	</td>
+	</tr>
 
 Note that regularization hurts training set performance! This is because it limits the ability of the network to overfit to the training set. But since it ultimately gives better test accuracy, it is helping your system. 
 
 Congratulations for finishing this assignment! And also for revolutionizing French football. :-) 
 
-<font color='blue'>
 **What we want you to remember from this notebook**:
 - Regularization will help you reduce overfitting.
 - Regularization will drive your weights to lower values.
