@@ -336,6 +336,7 @@ However, $\theta$ is not a scalar anymore. It is a dictionary called "parameters
 The inverse function is "`vector_to_dictionary`" which outputs back the "parameters" dictionary.
 
 <img src="images\dictionary_to_vector.png" style="width:600px;height:400px;">
+
 **Figure 2** : **dictionary_to_vector() and vector_to_dictionary()**
 
 You will need these functions in gradient_check_n()
@@ -415,9 +416,9 @@ def gradient_check_n(parameters, gradients, X, Y, epsilon = 1e-7):
     ### END CODE HERE ###
 
     if difference > 2e-7:
-        print ("\033[93m" + "There is a mistake in the backward propagation! difference = " + str(difference) + "\033[0m")
+        print ("There is a mistake in the backward propagation! difference = " + str(difference))
     else:
-        print ("\033[92m" + "Your backward propagation works perfectly fine! difference = " + str(difference) + "\033[0m")
+        print ("Your backward propagation works perfectly fine! difference = " + str(difference))
     
     return difference
 ```
