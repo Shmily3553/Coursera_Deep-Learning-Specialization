@@ -4,7 +4,7 @@ All the answers showed are correct.
 
 **1. Which notation would you use to denote the 3ed layer's activations when the input is the 7th example from the 8th minibatch?**
 
-$a^{[3]\{8\}(7)}$
+$a^{[3]\\{8\\}(7)}$
 
 **2. Which of these statements about mini-batch gradient descent do you agree with?**
 
@@ -18,7 +18,7 @@ If the mini-batch size is m, you end up with batch gradient descent, which has t
 
 **4. Suppose your learning algorithm's cost $J$, plotted as a function of the number of iterations, looks like this:**
 
-![](images/q2_1.png)
+<img src="images/q2_1.png" style="zoom:80%;" />
 
 **Which of the following do you agree with?**
 
@@ -42,7 +42,7 @@ $\alpha = e^t\alpha_0$
 
 **7. You use an exponentially weighted average on the London temperature dataset. You use the following to track the temperature: $v_t = \beta v_{t-1} + (1-\beta)\theta_t$. The red line below was computed using $\beta = 0.9$. What would happen to your red curve as you vary $ \beta $? (Check the two that apply)**
 
-![](images\q2_2.png)
+![](images/q2_2.png)
 
 Increasing $ \beta $ will shift the red line slightly to the right.
 
@@ -50,7 +50,7 @@ Decreasing $ \beta$ will create more oscillation within the red line.
 
 **8. Consider this figure:**
 
-![](images\q2_3.png)
+![](images/q2_3.png)
 
 **These plots were generated with gradient descent; with gradient descent with momentum ($ \beta = 0.5$) and gradient descent with momentum ($ \beta = 0.9$). Which curve corresponds to which algorithm?**
 
