@@ -4,8 +4,12 @@
 Until now, you've always used Gradient Descent to update the parameters and minimize the cost. In this notebook, you will learn more advanced optimization methods that can speed up learning and perhaps even get you to a better final value for the cost function. Having a good optimization algorithm can be the difference between waiting days vs. just a few hours to get a good result. 
 
 Gradient descent goes "downhill" on a cost function $J$. Think of it as trying to do this: 
+
 <img src="cost.jpg" style="width:650px;height:300px;">
-<caption><center> <u> **Figure 1** </u>: **Minimizing the cost is like finding the lowest point in a hilly landscape**<br> At each step of the training, you update your parameters following a certain direction to try to get to the lowest possible point. </center></caption>
+
+ **Figure 1** : **Minimizing the cost is like finding the lowest point in a hilly landscape** 
+
+At each step of the training, you update your parameters following a certain direction to try to get to the lowest possible point. 
 
 **Notations**: As usual, $\frac{\partial J}{\partial a } = $ `da` for any variable `a`.
 
@@ -170,11 +174,13 @@ for i in range(0, num_iterations):
         parameters = update_parameters(parameters, grads)
 ```
 
-
 In Stochastic Gradient Descent, you use only 1 training example before updating the gradients. When the training set is large, SGD can be faster. But the parameters will "oscillate" toward the minimum rather than converge smoothly. Here is an illustration of this: 
 
 <img src="kiank_sgd.png" style="width:750px;height:250px;">
-<caption><center> <u> <font color='purple'> **Figure 1** </u><font color='purple'>  : **SGD vs GD**<br> "+" denotes a minimum of the cost. SGD leads to many oscillations to reach convergence. But each step is a lot faster to compute for SGD than for GD, as it uses only one training example (vs. the whole batch for GD). </center></caption>
+
+ **Figure 1** : **SGD vs GD**
+
+ "+" denotes a minimum of the cost. SGD leads to many oscillations to reach convergence. But each step is a lot faster to compute for SGD than for GD, as it uses only one training example (vs. the whole batch for GD). 
 
 **Note** also that implementing SGD requires 3 for-loops in total:
 1. Over the number of iterations
@@ -184,7 +190,10 @@ In Stochastic Gradient Descent, you use only 1 training example before updating 
 In practice, you'll often get faster results if you do not use neither the whole training set, nor only one training example, to perform each update. Mini-batch gradient descent uses an intermediate number of examples for each step. With mini-batch gradient descent, you loop over the mini-batches instead of looping over individual training examples.
 
 <img src="kiank_minibatch.png" style="width:750px;height:250px;">
-<caption><center> <u> <font color='purple'> **Figure 2** </u>: <font color='purple'>  **SGD vs Mini-Batch GD**<br> "+" denotes a minimum of the cost. Using mini-batches in your optimization algorithm often leads to faster optimization. </center></caption>
+
+ **Figure 2** :  **SGD vs Mini-Batch GD**
+
+ "+" denotes a minimum of the cost. Using mini-batches in your optimization algorithm often leads to faster optimization. 
 
 <font color='blue'>
 **What you should remember**:
@@ -212,7 +221,7 @@ second_mini_batch_X = shuffled_X[:, mini_batch_size : 2 * mini_batch_size]
 ...
 ```
 
-Note that the last mini-batch might end up smaller than `mini_batch_size=64`. Let $\lfloor s \rfloor$ represents $s$ rounded down to the nearest integer (this is `math.floor(s)` in Python). If the total number of examples is not a multiple of `mini_batch_size=64` then there will be $\lfloor \frac{m}{mini\_batch\_size}\rfloor$ mini-batches with a full 64 examples, and the number of examples in the final mini-batch will be ($m-mini_\_batch_\_size \times \lfloor \frac{m}{mini\_batch\_size}\rfloor$). 
+Note that the last mini-batch might end up smaller than `mini_batch_size=64`. Let $\lfloor s \rfloor$ represents $s$ rounded down to the nearest integer (this is `math.floor(s)` in Python). If the total number of examples is not a multiple of `mini_batch_size=64` then there will be $\lfloor \frac{m}{mini\_batch\_size}\rfloor$ mini-batches with a full 64 examples, and the number of examples in the final mini-batch will be ($m-mini_\_batch_\_size \times \lfloor {\frac{m}{mini\_batch\_size}\rfloor} $). 
 
 
 ```python
@@ -291,38 +300,34 @@ print ("mini batch sanity check: " + str(mini_batches[0][0][0][0:3]))
     <tr>
     <td > **shape of the 1st mini_batch_X** </td> 
            <td > (12288, 64) </td> 
-    </tr> 
-
-    <tr>
-    <td > **shape of the 2nd mini_batch_X** </td> 
-           <td > (12288, 64) </td> 
-    </tr> 
-    
-    <tr>
-    <td > **shape of the 3rd mini_batch_X** </td> 
-           <td > (12288, 20) </td> 
     </tr>
     <tr>
-    <td > **shape of the 1st mini_batch_Y** </td> 
-           <td > (1, 64) </td> 
-    </tr> 
+	<td > **shape of the 2nd mini_batch_X** </td> 
+       	<td > (12288, 64) </td> 
+	</tr> 
     <tr>
-    <td > **shape of the 2nd mini_batch_Y** </td> 
-           <td > (1, 64) </td> 
-    </tr> 
-    <tr>
-    <td > **shape of the 3rd mini_batch_Y** </td> 
-           <td > (1, 20) </td> 
-    </tr> 
-    <tr>
-    <td > **mini batch sanity check** </td> 
-           <td > [ 0.90085595 -0.7612069   0.2344157 ] </td> 
-    </tr>
+	<td > **shape of the 3rd mini_batch_X** </td> 
+       	<td > (12288, 20) </td> 
+	</tr>
+	<tr>
+	<td > **shape of the 1st mini_batch_Y** </td> 
+     	  <td > (1, 64) </td> 
+	</tr> 
+	<tr>
+	<td > **shape of the 2nd mini_batch_Y** </td> 
+     	  <td > (1, 64) </td> 
+	</tr> 
+	<tr>
+	<td > **shape of the 3rd mini_batch_Y** </td> 
+    	   <td > (1, 20) </td> 
+	</tr> 
+	<tr>
+	<td > **mini batch sanity check** </td> 
+      	 <td > [ 0.90085595 -0.7612069   0.2344157 ] </td> 
+	</tr>
 
-</table>
+**What you should remember:**
 
-<font color='blue'>
-**What you should remember**:
 - Shuffling and Partitioning are the two steps required to build mini-batches
 - Powers of two are often chosen to be the mini-batch size, e.g., 16, 32, 64, 128.
 
@@ -333,7 +338,8 @@ Because mini-batch gradient descent makes a parameter update after seeing just a
 Momentum takes into account the past gradients to smooth out the update. We will store the 'direction' of the previous gradients in the variable $v$. Formally, this will be the exponentially weighted average of the gradient on previous steps. You can also think of $v$ as the "velocity" of a ball rolling downhill, building up speed (and momentum) according to the direction of the gradient/slope of the hill. 
 
 <img src="opt_momentum.png" style="width:400px;height:250px;">
-<caption><center> <u><font color='purple'>**Figure 3**</u><font color='purple'>: The red arrows shows the direction taken by one step of mini-batch gradient descent with momentum. The blue points show the direction of the gradient (with respect to the current mini-batch) on each step. Rather than just following the gradient, we let the gradient influence $v$ and then take a step in the direction of $v$.<br> <font color='black'> </center>
+
+**Figure 3**: The red arrows shows the direction taken by one step of mini-batch gradient descent with momentum. The blue points show the direction of the gradient (with respect to the current mini-batch) on each step. Rather than just following the gradient, we let the gradient influence $v$ and then take a step in the direction of $v$.
 
 
 **Exercise**: Initialize the velocity. The velocity, $v$, is a python dictionary that needs to be initialized with arrays of zeros. Its keys are the same as those in the `grads` dictionary, that is:
@@ -566,8 +572,8 @@ v["db2"] = v[[ 0.02344157]
 - Common values for $\beta$ range from 0.8 to 0.999. If you don't feel inclined to tune this, $\beta = 0.9$ is often a reasonable default. 
 - Tuning the optimal $\beta$ for your model might need trying several values to see what works best in term of reducing the value of the cost function $J$. 
 
-<font color='blue'>
 **What you should remember**:
+
 - Momentum takes past gradients into account to smooth out the steps of gradient descent. It can be applied with batch gradient descent, mini-batch gradient descent or stochastic gradient descent.
 - You have to tune a momentum hyperparameter $\beta$ and a learning rate $\alpha$.
 
@@ -582,14 +588,9 @@ Adam is one of the most effective optimization algorithms for training neural ne
 
 The update rule is, for $l = 1, ..., L$: 
 
-$$\begin{cases}
-v_{dW^{[l]}} = \beta_1 v_{dW^{[l]}} + (1 - \beta_1) \frac{\partial \mathcal{J} }{ \partial W^{[l]} } \\
-v^{corrected}_{dW^{[l]}} = \frac{v_{dW^{[l]}}}{1 - (\beta_1)^t} \\
-s_{dW^{[l]}} = \beta_2 s_{dW^{[l]}} + (1 - \beta_2) (\frac{\partial \mathcal{J} }{\partial W^{[l]} })^2 \\
-s^{corrected}_{dW^{[l]}} = \frac{s_{dW^{[l]}}}{1 - (\beta_2)^t} \\
-W^{[l]} = W^{[l]} - \alpha \frac{v^{corrected}_{dW^{[l]}}}{\sqrt{s^{corrected}_{dW^{[l]}}} + \varepsilon}
-\end{cases}$$
+![](adam_formula.png)
 where:
+
 - t counts the number of steps taken of Adam 
 - L is the number of layers
 - $\beta_1$ and $\beta_2$ are hyperparameters that control the two exponentially weighted averages. 
@@ -731,13 +732,7 @@ s["db2"] =
 
 **Exercise**:  Now, implement the parameters update with Adam. Recall the general update rule is, for $l = 1, ..., L$: 
 
-$$\begin{cases}
-v_{W^{[l]}} = \beta_1 v_{W^{[l]}} + (1 - \beta_1) \frac{\partial J }{ \partial W^{[l]} } \\
-v^{corrected}_{W^{[l]}} = \frac{v_{W^{[l]}}}{1 - (\beta_1)^t} \\
-s_{W^{[l]}} = \beta_2 s_{W^{[l]}} + (1 - \beta_2) (\frac{\partial J }{\partial W^{[l]} })^2 \\
-s^{corrected}_{W^{[l]}} = \frac{s_{W^{[l]}}}{1 - (\beta_2)^t} \\
-W^{[l]} = W^{[l]} - \alpha \frac{v^{corrected}_{W^{[l]}}}{\sqrt{s^{corrected}_{W^{[l]}}}+\varepsilon}
-\end{cases}$$
+![](adam_update_formula.png)
 
 
 **Note** that the iterator `l` starts at 0 in the `for` loop while the first parameters are $W^{[1]}$ and $b^{[1]}$. You need to shift `l` to `l+1` when coding.
@@ -930,7 +925,6 @@ Lets use the following "moons" dataset to test the different optimization method
 ```python
 train_X, train_Y = load_dataset()
 ```
-
 
 ![png](output_35_0.png)
 
