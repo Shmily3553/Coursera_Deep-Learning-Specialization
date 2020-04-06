@@ -19,12 +19,19 @@ Programing frameworks can not only shorten your coding time, but sometimes also 
 
 #### List of updates
 * forward_propagation instruction now says 'A1' instead of 'a1' in the formula for Z2;  
+
   and are updated to say 'A2' instead of 'Z2' in the formula for Z3.
+
 * create_placeholders instruction refer to the data type "tf.float32" instead of float.
+
 * in the model function, the x axis of the plot now says "iterations (per fives)" instead of iterations(per tens)
+
 * In the linear_function, comments remind students to create the variables in the order suggested by the starter code.  The comments are updated to reflect this order.
+
 * The test of the cost function now creates the logits without passing them through a sigmoid function (since the cost function will include the sigmoid in the built-in tensorflow function).
+
 * In the 'model' function, the minibatch_cost is now divided by minibatch_size (instead of num_minibatches).
+
 * Updated print statements and 'expected output that are used to check functions, for easier visual comparison.
 
 
@@ -128,14 +135,11 @@ Lets start this programming exercise by computing the following equation: $Y = W
 **Exercise**: Compute $WX + b$ where $W, X$, and $b$ are drawn from a random normal distribution. W is of shape (4, 3), X is (3,1) and b is (4,1). As an example, here is how you would define a constant X that has shape (3,1):
 ```python
 X = tf.constant(np.random.randn(3,1), name = "X")
-
 ```
 You might find the following functions helpful: 
 - tf.matmul(..., ...) to do a matrix multiplication
 - tf.add(..., ...) to do an addition
 - np.random.randn(...) to initialize randomly
-
-
 
 ```python
 # GRADED FUNCTION: linear_function
@@ -188,8 +192,7 @@ print( "result = \n" + str(linear_function()))
      [-1.08926781]
      [-0.84538042]]
 
-
-*** Expected Output ***: 
+**Expected Output**: 
 
 ```
 result = 
@@ -204,7 +207,7 @@ Great! You just implemented a linear function. Tensorflow offers a variety of co
 
 You will do this exercise using a placeholder variable `x`. When running the session, you should use the feed dictionary to pass in the input `z`. In this exercise, you will have to (i) create a placeholder `x`, (ii) define the operations needed to compute the sigmoid using `tf.sigmoid`, and then (iii) run the session. 
 
-** Exercise **: Implement the sigmoid function below. You should use the following: 
+**Exercise**: Implement the sigmoid function below. You should use the following: 
 
 - `tf.placeholder(tf.float32, name = "...")`
 - `tf.sigmoid(...)`
@@ -271,8 +274,7 @@ print ("sigmoid(12) = " + str(sigmoid(12)))
     sigmoid(0) = 0.5
     sigmoid(12) = 0.999994
 
-
-*** Expected Output ***: 
+**Expected Output **: 
 
 <table> 
 <tr> 
@@ -291,11 +293,8 @@ print ("sigmoid(12) = " + str(sigmoid(12)))
 0.999994
 </td>
 </tr> 
-
-</table> 
-
-<font color='blue'>
 **To summarize, you how know how to**:
+
 1. Create placeholders
 2. Specify the computation graph corresponding to operations you want to compute
 3. Create the session
@@ -303,7 +302,8 @@ print ("sigmoid(12) = " + str(sigmoid(12)))
 
 ### 1.3 -  Computing the Cost
 
-You can also use a built-in function to compute the cost of your neural network. So instead of needing to write code to compute this as a function of $a^{[2](i)}$ and $y^{(i)}$ for i=1...m: 
+You can also use a built-in function to compute the cost of your neural network. So instead of needing to write code to compute this as a function of ${a^{[2](i)}}$ and ${y^{(i)}}$ for i=1...m: 
+
 $$ J = - \frac{1}{m}  \sum_{i = 1}^m  \large ( \small y^{(i)} \log a^{ [2] (i)} + (1-y^{(i)})\log (1-a^{ [2] (i)} )\large )\small\tag{2}$$
 
 you can do it in one line of code in tensorflow!
@@ -371,8 +371,7 @@ print ("cost = " + str(cost))
 
     cost = [ 0.79813886  0.91301525  0.40318605  0.34115386]
 
-
-** Expected Output** : 
+**Expected Output** : 
 
 ```
 cost = [ 0.79813886  0.91301525  0.40318605  0.34115386]
@@ -382,8 +381,7 @@ cost = [ 0.79813886  0.91301525  0.40318605  0.34115386]
 
 Many times in deep learning you will have a y vector with numbers ranging from 0 to C-1, where C is the number of classes. If C is for example 4, then you might have the following y vector which you will need to convert as follows:
 
-
-<img src="images/onehot.png" style="width:600px;height:150px;">
+<img src="images\onehot.png" style="width:600px;height:150px;">
 
 This is called a "one hot" encoding, because in the converted representation exactly one element of each column is "hot" (meaning set to 1). To do this conversion in numpy, you might have to write a few lines of code. In tensorflow, you can use one line of code: 
 
@@ -517,7 +515,7 @@ print ("ones = " + str(ones([3])))
         </td>
     </tr>
 
-</table>
+
 
 # 2 - Building your first neural network in tensorflow
 
@@ -538,7 +536,7 @@ One afternoon, with some friends we decided to teach our computers to decipher s
 Note that this is a subset of the SIGNS dataset. The complete dataset contains many more signs.
 
 Here are examples for each number, and how an explanation of how we represent the labels. These are the original pictures, before we lowered the image resolutoion to 64 by 64 pixels.
-<img src="images/hands.png" style="width:800px;height:350px;"><caption><center> <u><font color='purple'> **Figure 1**</u><font color='purple'>: SIGNS dataset <br> <font color='black'> </center>
+<img src="images\hands.png" style="width:800px;height:350px;"> **Figure 1**: SIGNS dataset 
 
 
 Run the following code to load the dataset.
@@ -563,7 +561,7 @@ print ("y = " + str(np.squeeze(Y_train_orig[:, index])))
 
 
 
-![png](output_37_1.png)
+![png](images\output_37_1.png)
 
 
 As usual you flatten the image dataset, then normalize it by dividing by 255. On top of that, you will convert each label to a one-hot vector as shown in Figure 1. Run the cell below to do so.
@@ -668,7 +666,7 @@ print ("Y = " + str(Y))
         </td>
     </tr>
 
-</table>
+
 
 ### 2.2 - Initializing the parameters
 
@@ -773,9 +771,6 @@ with tf.Session() as sess:
         < tf.Variable 'b2:0' shape=(12, 1) dtype=float32_ref >
         </td>
     </tr>
-
-</table>
-
 As expected, the parameters haven't been evaluated yet.
 
 ### 2.3 - Forward propagation in tensorflow 
@@ -815,12 +810,12 @@ def forward_propagation(X, parameters):
     W3 = parameters['W3']
     b3 = parameters['b3']
     
-    ### START CODE HERE ### (approx. 5 lines)              # Numpy Equivalents:
-    Z1 = tf.add(tf.matmul(W1, X), b1)                                              # Z1 = np.dot(W1, X) + b1
+    ### START CODE HERE ### (approx. 5 lines)                        # Numpy Equivalents:
+    Z1 = tf.add(tf.matmul(W1, X), b1)                                # Z1 = np.dot(W1, X) + b1
     A1 = tf.nn.relu(Z1)                                              # A1 = relu(Z1)
-    Z2 = tf.add(tf.matmul(W2, A1), b2)                                              # Z2 = np.dot(W2, A1) + b2
+    Z2 = tf.add(tf.matmul(W2, A1), b2)                                # Z2 = np.dot(W2, A1) + b2
     A2 = tf.nn.relu(Z2)                                              # A2 = relu(Z2)
-    Z3 = tf.add(tf.matmul(W3, A2), b3)                                              # Z3 = np.dot(W3, A2) + b3
+    Z3 = tf.add(tf.matmul(W3, A2), b3)                                # Z3 = np.dot(W3, A2) + b3
     ### END CODE HERE ###
     
     return Z3
@@ -851,9 +846,6 @@ with tf.Session() as sess:
         Tensor("Add_2:0", shape=(6, ?), dtype=float32)
         </td>
     </tr>
-
-</table>
-
 You may have noticed that the forward propagation doesn't output any cache. You will understand why below, when we get to brackpropagation.
 
 ### 2.4 Compute cost
@@ -920,7 +912,7 @@ with tf.Session() as sess:
         </td>
     </tr>
 
-</table>
+
 
 ### 2.5 - Backward propagation & parameter updates
 
@@ -1085,13 +1077,12 @@ parameters = model(X_train, Y_train, X_test, Y_test)
 
 
 
-![png](output_64_1.png)
+![png](images\output_64_1.png)
 
 
     Parameters have been trained!
     Train Accuracy: 0.999074
     Test Accuracy: 0.716667
-
 
 **Expected Output**:
 
@@ -1112,9 +1103,6 @@ parameters = model(X_train, Y_train, X_test, Y_test)
         0.716667
         </td>
     </tr>
-
-</table>
-
 Amazing, your algorithm can recognize a sign representing a figure between 0 and 5 with 71.7% accuracy.
 
 **Insights**:
@@ -1152,8 +1140,8 @@ print("Your algorithm predicts: y = " + str(np.squeeze(my_image_prediction)))
 
 You indeed deserved a "thumbs-up" although as you can see the algorithm seems to classify it incorrectly. The reason is that the training set doesn't contain any "thumbs-up", so the model doesn't know how to deal with it! We call that a "mismatched data distribution" and it is one of the various of the next course on "Structuring Machine Learning Projects".
 
-<font color='blue'>
 **What you should remember**:
+
 - Tensorflow is a programming framework used in deep learning
 - The two main object classes in tensorflow are Tensors and Operators. 
 - When you code in tensorflow you have to take the following steps:
