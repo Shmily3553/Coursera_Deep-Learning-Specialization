@@ -274,7 +274,7 @@ print ("sigmoid(12) = " + str(sigmoid(12)))
     sigmoid(0) = 0.5
     sigmoid(12) = 0.999994
 
-**Expected Output **: 
+**Expected Output**: 
 
 <table> 
 <tr> 
@@ -302,7 +302,7 @@ print ("sigmoid(12) = " + str(sigmoid(12)))
 
 ### 1.3 -  Computing the Cost
 
-You can also use a built-in function to compute the cost of your neural network. So instead of needing to write code to compute this as a function of ${a^{[2](i)}}$ and ${y^{(i)}}$ for i=1...m: 
+You can also use a built-in function to compute the cost of your neural network. So instead of needing to write code to compute this as a function of $a^{{[2](i)}}$ and $y^{(i)}$ for i=1...m: 
 
 $$ J = - \frac{1}{m}  \sum_{i = 1}^m  \large ( \small y^{(i)} \log a^{ [2] (i)} + (1-y^{(i)})\log (1-a^{ [2] (i)} )\large )\small\tag{2}$$
 
@@ -314,6 +314,8 @@ you can do it in one line of code in tensorflow!
 - `tf.nn.sigmoid_cross_entropy_with_logits(logits = ...,  labels = ...)`
 
 Your code should input `z`, compute the sigmoid (to get `a`) and then compute the cross entropy cost $J$. All this can be done using one call to `tf.nn.sigmoid_cross_entropy_with_logits`, which computes
+
+
 
 $$- \frac{1}{m}  \sum_{i = 1}^m  \large ( \small y^{(i)} \log \sigma(z^{[2](i)}) + (1-y^{(i)})\log (1-\sigma(z^{[2](i)})\large )\small\tag{2}$$
 
@@ -558,8 +560,6 @@ print ("y = " + str(np.squeeze(Y_train_orig[:, index])))
 ```
 
     y = 5
-
-
 
 ![png](images\output_37_1.png)
 
@@ -1074,8 +1074,6 @@ parameters = model(X_train, Y_train, X_test, Y_test)
     Cost after epoch 1200: 0.088966
     Cost after epoch 1300: 0.061226
     Cost after epoch 1400: 0.053860
-
-
 
 ![png](images\output_64_1.png)
 
